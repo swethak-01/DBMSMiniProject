@@ -45,12 +45,12 @@ public class AppointmentRegisterServlet extends HttpServlet {
         Date appointmentTime1 = null;
 
         try {
-            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:MM:SS");
+            SimpleDateFormat timeFormat = new SimpleDateFormat("HH:MM");
             appointmentTime1 = timeFormat.parse(appointmentTime);
             // Now 'appointmentTime1' contains the parsed time
         } catch (ParseException e) {
             // Handle the parse exception, e.g., invalid time format
-            pw.println("<h2>Invalid time format. Please use HH:MM:SS (24-hour clock).</h2>");
+            pw.println("<h2>Invalid time format. Please use HH:MM (24-hour clock).</h2>");
             return;
         }
 
@@ -67,13 +67,15 @@ public class AppointmentRegisterServlet extends HttpServlet {
         }
      // generate the connection
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
-        	PreparedStatement ps = con.prepareStatement(query);){
-        	ps.setInt(1, patientID);
-        	ps.setInt(2, doctorID);
-        	ps.setDate(3, new java.sql.Date(appointmentDate1.getTime())); 
-// Convert to java.sql.Date
-        	ps.setTime(3, new java.sql.Time(appointmentTime1.getTime()));
+                PreparedStatement ps = con.prepareStatement(query);) {
+            ps.setInt(1, patientID);
+            ps.setInt(2, doctorID);
+            ps.setDate(3, new java.sql.Date(appointmentDate1.getTime()));
+            ps.setTime(4, new java.sql.Time(appointmentTime1.getTime()));  // Set the time value in the appropriate column
+            ps.setString(5, appointmentStatus);
+
             int count = ps.executeUpdate();
+
             if (count == 1) {
                 pw.println("<h2>Record is Registered Successfully...</h2>");
             } else {
