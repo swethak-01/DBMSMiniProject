@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Doctor</title>
+</head>
+<body>
+<h1>Add Doctor Details...</h1>
+<form action="DoctorRegister" method="post">
+	<table>
+		<tr>
+			<td>Doctor First Name:</td>
+			<td><input type="text" name="doctorFName" placeholder="Enter Doctor First Name"</td>
+		</tr>
+		<tr>
+			<td>Doctor Last Name:</td>
+			<td><input type="text" name="doctorLName" placeholder="Enter Doctor Last Name"</td>
+		</tr>
+		<tr>
+			<td>Doctor Date Of Birth:</td>
+			<td><input type="date" name="doctorDOB"</td>
+		</tr>
+		<tr>
+			<td>Doctor Gender:</td>
+			<td>
+   <input type="radio" name="maleGender" value="on"> Male
+    <input type="radio" name="femaleGender" value="on"> Female
+</td>
+</form>
+		</tr>
+		<tr>
+			<td>Doctor Address:</td>
+			<td><input type="text" name="doctorAddress" placeholder="Enter Doctor Address"</td>
+		</tr>
+		<tr>
+			<td>Doctor Phone Number:</td>
+			<td><input type="text" name="doctorNumber" placeholder="Enter Doctor Ph.Number"</td>
+		</tr>
+		<tr>
+			<td>Doctor Email:</td>
+			<td><input type="email" name="doctorEmail" placeholder="Enter Doctor Email"</td>
+		</tr>
+		<tr>
+			<td>Doctor Position:</td>
+			<td><input type="text" name="doctorPosition" placeholder="Enter Doctor Position"</td>
+		</tr>
+		<tr>
+			<td>Doctor Specialization:</td>
+			<td><input type="text" name="doctorSpecialization" placeholder="Enter Doctor Specialization"</td>
+		</tr>
+		<tr>
+			<td><input type="submit" value="Submit"</td>
+			<td><input type="reset" value="Reset"</td>
+		</tr>
+	</table>
+<a href='doctorList'>Doctor List</a>
+</form>
+</body>
+</html>
