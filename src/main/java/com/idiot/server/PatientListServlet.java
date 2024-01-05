@@ -36,7 +36,7 @@ public class PatientListServlet extends HttpServlet {
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
         	PreparedStatement ps = con.prepareStatement(query);){
         	ResultSet rs=ps.executeQuery();
-        	pw.println("<table>");
+        	pw.println("<table border='1' align='center'>");
             pw.println("<tr>");
             pw.println("<th>Patient ID</th>");
             pw.println("<th>First Name</th>");
@@ -47,6 +47,8 @@ public class PatientListServlet extends HttpServlet {
             pw.println("<th>Phone Number</th>");
             pw.println("<th>Email</th>");
             pw.println("<th>Emergency Contact</th>");
+            pw.println("<th>Edit</th>");
+            pw.println("<th>Delete</th>");
             pw.println("</tr>");
 
         	while(rs.next()) {
@@ -60,6 +62,8 @@ public class PatientListServlet extends HttpServlet {
                 pw.println("<td>" + rs.getLong(7) + "</td>");
                 pw.println("<td>" + rs.getString(8) + "</td>");
                 pw.println("<td>" + rs.getLong(9) + "</td>");
+                pw.println("<td><a href='PatientEditScreen?PatientID="+rs.getInt("PatientID")+"'>Edit</a></td>");
+                pw.println("<td><a href='deleteurl?id="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}
