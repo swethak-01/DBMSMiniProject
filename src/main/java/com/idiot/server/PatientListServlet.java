@@ -63,7 +63,7 @@ public class PatientListServlet extends HttpServlet {
                 pw.println("<td>" + rs.getString(8) + "</td>");
                 pw.println("<td>" + rs.getLong(9) + "</td>");
                 pw.println("<td><a href='PatientEditScreen?PatientID="+rs.getInt("PatientID")+"'>Edit</a></td>");
-                pw.println("<td><a href='deleteurl?id="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a href='patientdeleteurl?PatientID="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}
