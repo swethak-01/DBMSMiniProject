@@ -1,10 +1,79 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <meta charset="ISO-8859-1">
-<title>Hospital</title>
+<title>Global Hospitals</title>
+<style>
+	* {
+	margin: 0px;
+	padding: 0px;
+	
+}
+body {
+	display: flex;
+	height: 100vh;
+	
+	padding: 10px;
+	background: linear-gradient(50deg, #191979,#000080,#0000CD, #87CEFA,#F0F8FF);
+}
+h1 {
+	font-size: 33px;
+	font-weight: bold;
+	font-family: 'Courier New', monospace;
+	color:white;
+	padding-left:18px;
+	
+}
+button {
+	display: inline-block;
+	border-radius: 6px;
+	background-color: black;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 18px;
+	font-family: 'Courier New', monospace;
+	font-weight: bold;
+	padding: 5px;
+	width: 100px;
+	height: 40px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.button:hover span {
+	padding-right: 20px;
+}
+
+.button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+</style>
 </head>
 <body>
+	<h1>GLOBAL HOSPITALS...</h1>
+	<span><a href="Admin.html" class="button" style="vertical-align:middle"><span>ADMIN</span></a></span>
+	<br>
 <a href='AddPatient.html'>Add Patient</a>
 <a href='patientList'>Patient List</a>
 <a href='AddDoctor.html'>Add Doctor</a>

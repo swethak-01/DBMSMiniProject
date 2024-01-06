@@ -1,0 +1,125 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Add-Faculty</title>
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	font-weight: 500;
+}
+
+body {
+	display: flex;
+	height: 100vh;
+	justify-content: center;
+	align-items: center;
+	padding: 10px;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+}
+
+.container {
+	width:500px;
+
+	background: #fff;
+	padding: 25px 30px;
+	border-radius: 12px;
+	height:600px;
+}
+
+.container .title {
+	font-size: 25px;
+	font-weight: bolder;
+	margin: 5px;
+}
+
+hr {
+	height: 5px;
+	border-radius: 10px;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	border: none;
+	width: 50px;
+}
+
+.item {
+	margin: 5px;
+}
+
+.font-weight {
+	font-weight: bolder;
+}
+
+.box {
+	height: 30px;
+	width: 100%;
+	margin: 5px;
+	border-radius: 5px;
+	border: 1px solid #ccc;
+	outline: none;
+}
+
+.box:hover {
+	border-color: #9b59b6;
+}
+
+.box1 {
+	outline: none;
+	height: 30px;
+	width: 100%;
+	color: #fff;
+	border: none;
+	font-size: 18px;
+	font-weight: 500px;
+	background: linear-gradient(135deg, #71b7e6, #9b59b6);
+	letter-spacing: 1px;
+	margin: 5px;
+}
+
+.box1:hover {
+	background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+}
+</style>
+</head>
+<body>
+	<s:form action="saveOrUpdateFaculty" method="post">
+		<div class="container">
+			<hr>
+			<div class="title">ADD FACULTY</div>
+			</br>
+			
+			
+			<s:label class="item font-weight" key="Faculty Name: " /></br>
+			<s:textfield class="box" name="facultyName" required="true" placeholder="Enter Faculty Name"/></br>
+			</br>
+		
+			<s:label class="item font-weight" key="Faculty Phone: " /></br>
+			<s:textfield class="box" name="facultyPhone" required="true" placeholder="Enter Faculty Phone"/></br>
+			</br>
+			<s:label class="item font-weight" key="Faculty Email: " /></br>
+			<s:textfield class="box" name="facultyEmail" required="true" placeholder="Enter Faculty Email"/></br>
+			</br>
+			<s:label class="item font-weight" key="Faculty Department: " /></br>
+			<s:textfield  class="box" name="facultyDepartment" required="true" placeholder="Enter Faculty Department"/></br>
+			</br>
+			<s:label class="item font-weight" key="Department Id: " /></br>
+			<s:textfield class="box" name="departmentId" required="true" placeholder="Enter Department ID"/></br>
+			</br>
+			
+			
+		<center>
+		
+			<s:submit class="box1" label="Submit" />
+			</center>
+			
+			
+		
+	
+	</s:form>
+</body>
+</html>
