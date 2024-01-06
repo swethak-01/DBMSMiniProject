@@ -6,9 +6,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -44,7 +41,7 @@ public class DoctorDeleteServlet extends HttpServlet {
             if (count == 1) {
                 pw.println("<h2>Record is deleted successfully...</h2>");
             } else {
-                pw.println("<h2>Record is not d successfully...</h2>");
+                pw.println("<h2>Record is not deleted successfully...</h2>");
             }
         } catch (SQLException se) {
             se.printStackTrace();

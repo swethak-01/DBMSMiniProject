@@ -50,11 +50,7 @@ public class DoctorEditServlet extends HttpServlet {
 
         String doctorGender = req.getParameter("doctorGender");
 
-        // Check if the gender is not selected
-        if (doctorGender == null || doctorGender.isEmpty()) {
-            pw.println("<h2>Please select a gender.</h2>");
-            return;
-        }
+        
         String doctorAddress = req.getParameter("doctorAddress");
         Long doctorNumber = Long.parseLong(req.getParameter("doctorNumber"));
         String doctorEmail = req.getParameter("doctorEmail");

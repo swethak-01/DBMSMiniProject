@@ -63,7 +63,6 @@ public class DoctorEditScreenServlet extends HttpServlet {
         	pw.println("<input type='radio' name='doctorGender' value='Female' " + (rs.getString(4).equals("Female") ? "checked" : "") + "> Female");
         	pw.println("</td>");
         	pw.println("</tr>");
-
         	pw.println("<tr>");
         	pw.println("<td>Doctor Address:<td>");
         	pw.println("<td><input type='text' name='doctorAddress' value='"+rs.getString(5)+"'></td>");

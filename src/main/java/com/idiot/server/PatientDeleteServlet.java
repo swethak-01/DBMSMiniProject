@@ -44,7 +44,7 @@ public class PatientDeleteServlet extends HttpServlet {
             if (count == 1) {
                 pw.println("<h2>Record is deleted successfully...</h2>");
             } else {
-                pw.println("<h2>Record is not d successfully...</h2>");
+                pw.println("<h2>Record is not deleted successfully...</h2>");
             }
         } catch (SQLException se) {
             se.printStackTrace();
