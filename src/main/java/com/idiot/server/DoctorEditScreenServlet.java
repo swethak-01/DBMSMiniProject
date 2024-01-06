@@ -13,7 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-@jakarta.servlet.annotation.WebServlet("/DoctorEditScreen")
+@WebServlet("/DoctorEditScreen")
 public class DoctorEditScreenServlet extends HttpServlet {
 	private static final String query = "SELECT FirstName, LastName, DateOfBirth, Gender, Address, PhoneNumber, Email, Position, Specialization FROM HOSPITALMANAGEMENT.DOCTOR WHERE DoctorID=?";
 
@@ -42,7 +42,7 @@ public class DoctorEditScreenServlet extends HttpServlet {
         	ps.setInt(1, DoctorID);
         	ResultSet rs=ps.executeQuery();
         	rs.next();
-        	pw.println("<form action='doctorediturl?'id="+DoctorID+"' method='post'>");
+        	pw.println("<form action='doctorediturl?DoctorID=" + DoctorID + "' method='post'>");
         	pw.println("<table>");
         	pw.println("<tr>");
         	pw.println("<td>Doctor First Name:<td>");
@@ -59,8 +59,8 @@ public class DoctorEditScreenServlet extends HttpServlet {
         	pw.println("<tr>");
         	pw.println("<td>Doctor Gender:</td>");
         	pw.println("<td>");
-        	pw.println("<input type='radio' name='maleGender' value='on'" + (rs.getString(4).equals("M") ? " checked" : "") + "> Male");
-        	pw.println("<input type='radio' name='femaleGender' value='on'" + (rs.getString(4).equals("F") ? " checked" : "") + "> Female");
+        	pw.println("<input type='radio' name='doctorGender' value='Male' " + (rs.getString(4).equals("Male") ? "checked" : "") + "> Male");
+        	pw.println("<input type='radio' name='doctorGender' value='Female' " + (rs.getString(4).equals("Female") ? "checked" : "") + "> Female");
         	pw.println("</td>");
         	pw.println("</tr>");
 
@@ -102,7 +102,7 @@ public class DoctorEditScreenServlet extends HttpServlet {
         pw.println("<a href='doctorList'>Doctor List</a>");
     }
         		@Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-        doGet(req, res);
+        protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+        	        doGet(req, res);
     }
 }
