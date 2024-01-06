@@ -24,7 +24,10 @@ public class DoctorEditScreenServlet extends HttpServlet {
         // set content type
         res.setContentType("text/html");
         //get the id of the record
-        int DoctorID=Integer.parseInt(req.getParameter("DoctorID"));
+        int DoctorID = Integer.parseInt(req.getParameter("DoctorID"));
+        
+       
+      
 
      
      // LOAD jdbc driver
@@ -96,7 +99,7 @@ public class DoctorEditScreenServlet extends HttpServlet {
             pw.println("<h1>"+e.getMessage()+"</h2>");
         }
         pw.println("<a href='AddDoctor.html'>Add Doctor</a>");
-        
+        pw.println("<a href='doctorList'>Doctor List</a>");
     }
         		@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
