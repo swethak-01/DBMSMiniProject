@@ -25,7 +25,7 @@ public class PatientListServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         // set content type
         res.setContentType("text/html");
-     
+       
      // LOAD jdbc driver
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -36,8 +36,20 @@ public class PatientListServlet extends HttpServlet {
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
         	PreparedStatement ps = con.prepareStatement(query);){
         	ResultSet rs=ps.executeQuery();
-        	pw.println("<table border='1' align='center'>");
-            pw.println("<tr>");
+        	pw.println("<html>");
+            pw.println("<head>");
+            pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+            pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+            pw.println("<link rel='stylesheet' type='text/css' href='style.css'>");
+            pw.println("<title>Patients List</title>");
+            pw.println("</head>");
+            pw.println("<body>");
+            pw.println("<h1>GLOBAL HOSPITALS...</h1>");
+            pw.println("<center><h3>PATIENTS LIST</h3></center>");
+            pw.println("<a href='AddPatient.html' class='button' style='vertical-align:middle'><span>Add</span></a>");
+            pw.println("<br>");
+        	pw.println("<table  class=\"w3-table-all\">");
+            pw.println("<tr class=\"w3-black\">");
             pw.println("<th>Patient ID</th>");
             pw.println("<th>First Name</th>");
             pw.println("<th>Last Name</th>");
@@ -62,12 +74,15 @@ public class PatientListServlet extends HttpServlet {
                 pw.println("<td>" + rs.getLong(7) + "</td>");
                 pw.println("<td>" + rs.getString(8) + "</td>");
                 pw.println("<td>" + rs.getLong(9) + "</td>");
-                pw.println("<td><a href='PatientEditScreen?PatientID="+rs.getInt("PatientID")+"'>Edit</a></td>");
-                pw.println("<td><a href='patientdeleteurl?PatientID="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a class='tag' href='PatientEditScreen?PatientID="+rs.getInt("PatientID")+"'>Edit</a></td>");
+                pw.println("<td><a class='tag'href='patientdeleteurl?PatientID="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}
         	pw.println("</table>");
+        	pw.println("</body>");
+            pw.println("</html>");
+
         } catch (SQLException se) {
             se.printStackTrace();
             pw.println("<h1>"+se.getMessage()+"</h2>");
@@ -75,7 +90,7 @@ public class PatientListServlet extends HttpServlet {
             e.printStackTrace();
             pw.println("<h1>"+e.getMessage()+"</h2>");
         }
-        pw.println("<a href='AddPatient.html'>Add Patient</a>");
+
         
     }
         		@Override
