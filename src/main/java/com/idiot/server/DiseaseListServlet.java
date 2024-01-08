@@ -36,8 +36,24 @@ public class DiseaseListServlet extends HttpServlet {
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
         	PreparedStatement ps = con.prepareStatement(query);){
         	ResultSet rs=ps.executeQuery();
-        	pw.println("<table border='1' align='center'>");
-            pw.println("<tr>");
+        	pw.println("<html>");
+        	pw.println("<head>");
+        	pw.println("<link rel='stylesheet' type='text/css' href='styles.css'>");
+        	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+        	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+        	pw.println("<meta charset=\"ISO-8859-1\">");
+        	pw.println("<title>Diseases List</title>");
+        	pw.println("</head>");
+        	pw.println("<body>");
+        	pw.println("<header>\r\n"
+        			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
+        			+ "  <a class='tag1' href='Admin.html'>ADMIN</a></header><br>");
+        	pw.println("<center>\r\n"
+        	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">DISEASES LIST</h3>\r\n"
+        	        + "  </center>");
+pw.println("<a href='AddDisease.html' class=\"button\" style=\"vertical-align:middle\"><span>Add</span></a><br>");
+        	pw.println("<table class=\"w3-table-all w3-centered\">");
+        	pw.println("<tr class=\"w3-hover\" style=\"background-color: #290066; color: white;\">");
             pw.println("<th>Disease ID</th>");
             pw.println("<th>Disease Name</th>");
             pw.println("<th>Vaccination</th>");
@@ -62,6 +78,8 @@ public class DiseaseListServlet extends HttpServlet {
 
         	}
         	pw.println("</table>");
+        	pw.println("</body>");
+        	pw.println("</html>");
         } catch (SQLException se) {
             se.printStackTrace();
             pw.println("<h1>"+se.getMessage()+"</h2>");
@@ -69,7 +87,7 @@ public class DiseaseListServlet extends HttpServlet {
             e.printStackTrace();
             pw.println("<h1>"+e.getMessage()+"</h2>");
         }
-        pw.println("<a href='AddDisease.html'>Add Disease</a>");
+        
         
     }
         		@Override

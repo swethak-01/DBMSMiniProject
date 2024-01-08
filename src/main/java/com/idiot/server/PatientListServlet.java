@@ -37,19 +37,23 @@ public class PatientListServlet extends HttpServlet {
         	PreparedStatement ps = con.prepareStatement(query);){
         	ResultSet rs=ps.executeQuery();
         	pw.println("<html>");
-            pw.println("<head>");
-            pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
-            pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
-            pw.println("<link rel='stylesheet' type='text/css' href='style.css'>");
-            pw.println("<title>Patients List</title>");
-            pw.println("</head>");
-            pw.println("<body>");
-            pw.println("<h1>GLOBAL HOSPITALS...</h1>");
-            pw.println("<center><h3>PATIENTS LIST</h3></center>");
-            pw.println("<a href='AddPatient.html' class='button' style='vertical-align:middle'><span>Add</span></a>");
-            pw.println("<br>");
-        	pw.println("<table  class=\"w3-table-all\">");
-            pw.println("<tr class=\"w3-black\">");
+        	pw.println("<head>");
+        	pw.println("<link rel='stylesheet' type='text/css' href='styles.css'>");
+        	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+        	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+        	pw.println("<meta charset=\"ISO-8859-1\">");
+        	pw.println("<title>Result</title>");
+        	pw.println("</head>");
+        	pw.println("<body>");
+        	pw.println("<header>\r\n"
+        			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
+        			+ "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
+        	pw.println("<center>\r\n"
+        	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">PATIENTS LIST</h3>\r\n"
+        	        + "  </center>");
+pw.println("<a href='AddPatient.html' class=\"button\" style=\"vertical-align:middle\"><span>Add</span></a><br>");
+        	pw.println("<table class=\"w3-table-all w3-centered\">");
+        	pw.println("<tr class=\"w3-hover\" style=\"background-color: #290066; color: white;\">");
             pw.println("<th>Patient ID</th>");
             pw.println("<th>First Name</th>");
             pw.println("<th>Last Name</th>");
@@ -74,14 +78,14 @@ public class PatientListServlet extends HttpServlet {
                 pw.println("<td>" + rs.getLong(7) + "</td>");
                 pw.println("<td>" + rs.getString(8) + "</td>");
                 pw.println("<td>" + rs.getLong(9) + "</td>");
-                pw.println("<td><a class='tag' href='PatientEditScreen?PatientID="+rs.getInt("PatientID")+"'>Edit</a></td>");
-                pw.println("<td><a class='tag'href='patientdeleteurl?PatientID="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a class='tag2' href='PatientEditScreen?PatientID="+rs.getInt("PatientID")+"'>Edit</a></td>");
+                pw.println("<td><a class='tag2'href='patientdeleteurl?PatientID="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}
         	pw.println("</table>");
         	pw.println("</body>");
-            pw.println("</html>");
+        	pw.println("</html>");
 
         } catch (SQLException se) {
             se.printStackTrace();

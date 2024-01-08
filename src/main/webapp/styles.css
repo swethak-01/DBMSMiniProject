@@ -1,0 +1,132 @@
+@charset "ISO-8859-1";
+* {
+      margin: 0%;
+      padding: 0%;
+    }
+
+    body {
+		font-weight: bold;
+      font-family: 'Courier New', monospace;
+      height: 100vh;
+      padding: 10px;
+      color: #290066;
+      background-color: white;
+    }
+
+    h1 {
+      padding-left: 20px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 35px;
+    }
+
+    .tag1 {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      margin-left:60%;
+    }
+    header {
+      background: linear-gradient(to top, #ccccff 0%, #ffffff 100%);
+      color: #290066;
+      text-align: left;
+      padding: 20px;
+      padding-left: 30px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+    }
+    .h1 {
+      font-size: 35px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+    }
+    table {
+     
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      justify-content: center;
+    }
+    .w3-table{
+		margin-left:10px;
+		padding-top: 2%;
+  padding-bottom: 2%;
+	}
+
+    .w3-hover:hover {
+      background-color: #290066;
+      color: white;
+    }
+	.button {
+	display: inline-block;
+	border-radius: 6px;
+	background-color: #290066;
+	border: none;
+	color: #FFFFFF;
+	text-align: center;
+	font-size: 18px;
+	font-family: 'Courier New', monospace;
+	font-weight: bold;
+	padding: 5px;
+	width: 100px;
+	height: 40px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin: 5px;
+	margin-left:10px;
+}
+
+.button span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+
+.button span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+
+.button:hover span {
+	padding-right: 20px;
+}
+
+.button:hover span:after {
+	opacity: 1;
+	right: 0;
+}
+ .h3 {
+      padding-left:33%;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 25px;
+      margin-top:-10%;
+    }
+.tag1 {
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+     	margin-left:0%;
+     	text-align:center;
+    }
+    .tag {
+      text-decoration: none;
+      font-size: 20px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+      padding-left:60%;
+    }
+	.tag2{
+		text-decoration: none;
+      
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+     	margin-left:0%;
+     	text-align:center;
+	}

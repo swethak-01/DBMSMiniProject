@@ -1,86 +1,103 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<meta charset="ISO-8859-1">
-<title>Global Hospitals</title>
-<style>
-	*{
-		margin:0%;
-		padding:0%;
-	}
-	body{
-		height: 100vh;
-		padding: 10px;
-		background: linear-gradient(to bottom left, #ffffcc 0%, #ffccff 100%);
-		
-	}h1{
-		padding-left:20px;
-		font-family: 'Courier New', monospace;
-	font-weight: bold;
-	font-size:35px;
-	}
-	h3{
-		padding-left:20px;
-		font-family: 'Courier New', monospace;
-	font-weight: bold;
-	font-size:25px;
-	padding-left:80px;
-	}
-	.tag1{
-		text-decoration: none;
-  font-size: 17px;
-	font-weight: bold;
-	font-family: 'Courier New', monospace;
-	
-	}
-	
-.sidebar {
-	display: flex;
-	margin-top:20px;
-	background-color:white;
-	border-color:white;
-	border-width:7px;
-	border-style:solid;
-	color:black;
-	width: 16%;
-	height: 388px;
-	padding: 35px;
-	font-family: 'Courier New', monospace;
-	font-size:18px;
-	font-weight:bold;
-	padding-left:42px;
-}
-hr {
-    border: 1px solid black;
-    margin: 20px 0; /* Adjust margin as needed */
-}
 
-</style>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta charset="ISO-8859-1">
+  <title>Global Hospitals</title>
+  <style>
+    * {
+      margin: 0%;
+      padding: 0%;
+    }
+
+    body {
+      height: 100vh;
+      padding: 10px;
+      color: #290066;
+      background-color: white;
+    }
+
+    h1 {
+      padding-left: 20px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 35px;
+    }
+
+    h3 {
+      padding-left: 20px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 25px;
+      padding-left: 80px;
+    }
+
+    .tag1 {
+      text-decoration: none;
+      font-size: 17px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+    }
+
+    header {
+      background: linear-gradient(to top, #ccccff 0%, #ffffff 100%);
+      color: #290066;
+      text-align: left;
+      padding: 20px;
+      padding-left: 30px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+    }
+
+    .h1 {
+      font-size: 35px;
+      font-weight: bold;
+      font-family: 'Courier New', monospace;
+    }
+
+    table {
+      margin-left: 10px;
+      
+    }
+
+    .w3-hover:hover {
+      background-color: #290066;
+      color: white;
+    }
+   
+  </style>
 </head>
 
 <body>
 
-<h1>GLOBAL HOSPITALS...</h1>	
+  <header>
+    <span class="h1">GLOBAL HOSPITALS...</span>
+  </header>
 
+  <center>
+    <h3>WELCOME ADMIN</h3>
+  </center>
+  <br><br>
+  <table class="w3-table w3-bordered w3-border w3-centered" style="width:16.5%">
+    <tr class="w3-hover">
+      <td><a class='tag1' href='patientList'>Patients</a></td>
+    </tr>
+    <tr class="w3-hover">
+      <td><a class='tag1' href='doctorList'>Doctors</a></td>
+    </tr>
+    <tr class="w3-hover">
+      <td><a class='tag1' href='diseaseList'>Diseases</a></td>
+    </tr>
+    <tr class="w3-hover">
+      <td><a class='tag1' href='appointmentList'>Appointments</a></td>
+    </tr>
+    <tr class="w3-hover">
+      <td><a class='tag1' href='billingList'>Bills</a></td>
+    </tr>
+  </table>
 
-<center><h3>WELCOME ADMIN</h3></center>
-
-	
-		<div class="sidebar">
-			<center>
-				<a class='tag1' href='patientList'>PATIENTS</a><br><hr>
-				<a class='tag1' href='doctorList'>DOCTORS</a><br><hr>
-				<a class='tag1' href='diseaseList'>DISEASES</a><br><hr>
-				<a class='tag1' href='appointmentList'>APPOINTMENTS</a><br><hr>
-				<a class='tag1' href='billingList'>BILLING</a><br>	
-			</center>
-		</div>
-
-
-
-	
-	
 </body>
+
 </html>
