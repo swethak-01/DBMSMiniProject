@@ -47,7 +47,7 @@ public class DoctorListServlet extends HttpServlet {
         	pw.println("<body>");
         	pw.println("<header>\r\n"
         			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
-        			+ "  <a class='tag1' href='Admin.html'>ADMIN</a></header><br>");
+        			+ "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
         	pw.println("<center>\r\n"
         	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">DOCTORS LIST</h3>\r\n"
         	        + "  </center>");
@@ -80,8 +80,8 @@ pw.println("<a href='AddDoctor.html' class=\"button\" style=\"vertical-align:mid
                 pw.println("<td>" + rs.getString(8) + "</td>");
                 pw.println("<td>" + rs.getString(9) + "</td>");
                 pw.println("<td>" + rs.getString(10) + "</td>");
-                pw.println("<td><a href='DoctorEditScreen?DoctorID="+rs.getInt("DoctorID")+"'>Edit</a></td>");
-                pw.println("<td><a href='doctordeleteurl?DoctorID="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a class='tag2' href='DoctorEditScreen?DoctorID="+rs.getInt("DoctorID")+"'>Edit</a></td>");
+                pw.println("<td><a class='tag2' href='doctordeleteurl?DoctorID="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}

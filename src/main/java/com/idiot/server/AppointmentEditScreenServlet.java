@@ -23,6 +23,18 @@ public class AppointmentEditScreenServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         // set content type
         res.setContentType("text/html");
+        pw.println("<html>");
+    	pw.println("<head>");
+    	pw.println("<link rel='stylesheet' type='text/css' href='styleedit.css'>");
+    	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+    	pw.println("<meta charset=\"ISO-8859-1\">");
+    	pw.println("<title>Edit Appointment </title>");
+    	pw.println("</head>");
+    	pw.println("<body>");
+    	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
+    			+ "        			<a class='tag' href='Admin.html'>ADMIN</a></header><br>\r\n"
+    			+ "<center><h3 class='h3'>EDIT APPOINTMENT DETAILS</h3></center>");
      //get the id of record
         int AppointmentID=Integer.parseInt(req.getParameter("AppointmentID"));
      // LOAD jdbc driver
@@ -37,43 +49,46 @@ public class AppointmentEditScreenServlet extends HttpServlet {
         	ps.setInt(1, AppointmentID);
         	ResultSet rs=ps.executeQuery();
         	rs.next();
+        	pw.println("<center>");
+        	pw.println("<div class=\"content\">");
+        	pw.println("<nav class='add'>");
         	pw.println("<form action='appointmentediturl?AppointmentID=" + AppointmentID + "' method='post'>");
         	pw.println("<table>");
 
         	// First Column
         	pw.println("<tr>");
         	pw.println("<td>Patient ID:</td>");
-        	pw.println("<td><input type='text' name='PatientID' value='" + rs.getString(1) + "'></td>");
+        	pw.println("<td><input class='box' type='text' name='PatientID' value='" + rs.getString(1) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
         	pw.println("<td>Doctor ID:</td>");
-        	pw.println("<td><input type='text' name='DoctorID' value='" + rs.getString(2) + "'></td>");
+        	pw.println("<td><input class='box' type='text' name='DoctorID' value='" + rs.getString(2) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
         	pw.println("<td>Date Of Appointment:</td>");
-        	pw.println("<td><input type='date' name='appointmentDate' value='" + rs.getDate(3) + "'></td>");
+        	pw.println("<td><input class='box' type='date' name='appointmentDate' value='" + rs.getDate(3) + "'></td>");
         	pw.println("</tr>");
 
         	
         	// Second Column
         	pw.println("<tr>");
         	pw.println("<td>Time Of Appointment:</td>");
-        	pw.println("<td><input type='time' name='appointmentTime' value='" + rs.getTime(4) + "'></td>");
+        	pw.println("<td><input class='box' type='time' name='appointmentTime' value='" + rs.getTime(4) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
         	pw.println("<td>Status Of Appointment:</td>");
-        	pw.println("<td><input type='text' name='appointmentStatus' value='" + rs.getString(5) + "'></td>");
+        	pw.println("<td><input class='box' type='text' name='appointmentStatus' value='" + rs.getString(5) + "'></td>");
         	pw.println("</tr>");
 
         	
 
         	// Buttons
         	pw.println("<tr>");
-        	pw.println("<td><input type='submit' value='Edit'></td>");
-        	pw.println("<td><input type='reset' value='Reset'></td>");
+        	pw.println("<td><input class='button4' type='submit' value='Edit'></td>");
+        	pw.println("<td><input class='button2' type='reset' value='Reset'></td>");
         	pw.println("</tr>");
 
         	pw.println("</table>");
@@ -81,13 +96,16 @@ public class AppointmentEditScreenServlet extends HttpServlet {
 
         } catch (SQLException se) {
             se.printStackTrace();
-            pw.println("<h1>"+se.getMessage()+"</h2>");
+            pw.println("<h3>"+se.getMessage()+"</h3>");
         } catch (Exception e) {
             e.printStackTrace();
-            pw.println("<h1>"+e.getMessage()+"</h2>");
+            pw.println("<h3>"+e.getMessage()+"</h3>");
         }
-        pw.println("<a href='AddAppointment.html'>Add Appointment</a>");
-        pw.println("<a href='appointmentList'>Appointment List</a>");
+        pw.println("</nav>");
+        pw.println("</div>");
+        pw.println("</center>");
+        pw.println("</body>");
+        pw.println("</html>");
     }
         		@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

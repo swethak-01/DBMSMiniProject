@@ -47,7 +47,7 @@ public class AppointmentListServlet extends HttpServlet {
         	pw.println("<body>");
         	pw.println("<header>\r\n"
         			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
-        			+ "  <a class='tag1' href='Admin.html'>ADMIN</a></header><br>");
+        			+ "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
         	pw.println("<center>\r\n"
         	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">APPOINTMNETS LIST</h3>\r\n"
         	        + "  </center>");
@@ -73,8 +73,8 @@ pw.println("<a href='AddAppointment.html' class=\"button\" style=\"vertical-alig
                 pw.println("<td>" + rs.getTime(5) + "</td>");
                 pw.println("<td>" + rs.getString(6) + "</td>");
              
-                pw.println("<td><a href='AppointmentEditScreen?AppointmentID="+rs.getInt("AppointmentID")+"'>Edit</a></td>");
-                pw.println("<td><a href='appointmentdeleteurl?AppointmentID="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a class='tag2' href='AppointmentEditScreen?AppointmentID="+rs.getInt("AppointmentID")+"'>Edit</a></td>");
+                pw.println("<td><a class='tag2' href='appointmentdeleteurl?AppointmentID="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}

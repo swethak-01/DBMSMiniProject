@@ -26,6 +26,17 @@ public class DoctorEditServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         // set content type
         res.setContentType("text/html");
+        pw.println("<head>");
+    	pw.println("<link rel='stylesheet' type='text/css' href='styleedit.css'>");
+    	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+    	pw.println("<meta charset=\"ISO-8859-1\">");
+    	pw.println("<title>Edit Doctor </title>");
+    	pw.println("</head>");
+    	pw.println("<body>");
+    	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
+    			+ "        			<a class='tag' href='Admin.html'>ADMIN</a></header><br>\r\n"
+    			+ "<center><h3 class='h3'>EDIT PATIENT DETAILS</h3></center>");
         // get the id of the record
      
 

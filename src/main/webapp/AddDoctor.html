@@ -3,57 +3,166 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Add Doctor</title>
+<style>
+  * {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  body {
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    height: 100vh;
+    padding: 10px;
+    color: #290066;
+    background-color: white;
+  }
+
+  span {
+    padding-left: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 35px;
+  }
+
+  .tag1 {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    margin-left: 60%;
+  }
+
+  header {
+    background: linear-gradient(to top, #ccccff 0%, #ffffff 100%);
+    color: #290066;
+    text-align: left;
+    padding: 20px;
+    padding-left: 30px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+  }
+  h3 {
+      padding-left: 20px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 25px;
+      padding-left: 80px;
+    }
+    .content {
+	width: 80%;
+	padding: 20px;
+}
+    .add{
+font-family: 'Courier New', monospace;
+margin-top:40px;
+display:inline-border;
+border-color:#290066;
+border-style:solid;
+border-width:7px;
+width:500px;
+margin-left:6%;
+padding:25px;
+font-weight:bold;
+margin-top:0%;
+}
+.radio1{
+	margin-top:5%;
+}
+.box{
+width:270px;
+height:30px;
+margin-top:4%;
+font-family: 'Courier New', monospace;
+font-weight:bold;
+}
+.button1{
+width:70px;
+height:27px;
+background-color:white;
+font-weight:bold;
+color:#290066;
+margin-left:50%;
+margin-top:13%;}
+.button1:hover{
+background-color:#290066;
+font-weight:bold;
+color:white;
+}
+.button2{
+width:70px;
+height:27px;
+background-color:white;
+font-weight:bold;
+color:#290066;
+margin-left:25%;
+margin-top:10%;}
+.button2:hover{
+background-color:#290066;
+font-weight:bold;
+color:white;
+}
+</style>
 </head>
 <body>
-<h1>Add Doctor Details...</h1>
+<header> <span>GLOBAL HOSPITALS...</span>
+        			<a class='tag1' href='Admin.html'>ADMIN</a></header><br>
+<center><h3>ADD DOCTOR DETAILS</h3></center>
+<center>
+	<div class="content">
+		<nav class='add'>
 <form action="DoctorRegister" method="post">
 	<table>
 		<tr>
 			<td>Doctor First Name:</td>
-			<td><input type="text" name="doctorFName" placeholder="Enter Doctor First Name"</td>
+			<td><input style="width:270px;
+height:30px;font-family: 'Courier New', monospace;font-weight: bold;" type="text" name="doctorFName" placeholder="Enter Doctor First Name"</td>
 		</tr>
 		<tr>
 			<td>Doctor Last Name:</td>
-			<td><input type="text" name="doctorLName" placeholder="Enter Doctor Last Name"</td>
+			<td><input class="box" type="text" name="doctorLName" placeholder="Enter Doctor Last Name"</td>
 		</tr>
 		<tr>
 			<td>Doctor Date Of Birth:</td>
-			<td><input type="date" name="doctorDOB"</td>
+			<td><input class="box" type="date" name="doctorDOB"</td>
 		</tr>
 		<tr>
 			<td>Doctor Gender:</td>
 			<td>
-   <input type="radio" name="maleGender" value="on"> Male
-    <input type="radio" name="femaleGender" value="on"> Female
+   <input class="radio1" type="radio" name="maleGender" value="on"> Male
+    <input class="radio1" type="radio" name="femaleGender" value="on"> Female
 </td>
 </form>
 		</tr>
 		<tr>
 			<td>Doctor Address:</td>
-			<td><input type="text" name="doctorAddress" placeholder="Enter Doctor Address"</td>
+			<td><input class="box" type="text" name="doctorAddress" placeholder="Enter Doctor Address"</td>
 		</tr>
 		<tr>
 			<td>Doctor Phone Number:</td>
-			<td><input type="text" name="doctorNumber" placeholder="Enter Doctor Ph.Number"</td>
+			<td><input class="box" type="text" name="doctorNumber" placeholder="Enter Doctor Ph.Number"</td>
 		</tr>
 		<tr>
 			<td>Doctor Email:</td>
-			<td><input type="email" name="doctorEmail" placeholder="Enter Doctor Email"</td>
+			<td><input class="box" type="email" name="doctorEmail" placeholder="Enter Doctor Email"</td>
 		</tr>
 		<tr>
 			<td>Doctor Position:</td>
-			<td><input type="text" name="doctorPosition" placeholder="Enter Doctor Position"</td>
+			<td><input class="box" type="text" name="doctorPosition" placeholder="Enter Doctor Position"</td>
 		</tr>
 		<tr>
 			<td>Doctor Specialization:</td>
-			<td><input type="text" name="doctorSpecialization" placeholder="Enter Doctor Specialization"</td>
+			<td><input class="box" type="text" name="doctorSpecialization" placeholder="Enter Doctor Specialization"</td>
 		</tr>
 		<tr>
-			<td><input type="submit" value="Submit"</td>
-			<td><input type="reset" value="Reset"</td>
+			<td><input class ="button1" type="submit" value="Submit"</td>
+			<td><input class ="button2" type="reset" value="Reset"</td>
 		</tr>
 	</table>
-<a href='doctorList'>Doctor List</a>
+
 </form>
+</nav>
+</div>
+</center>
 </body>
 </html>

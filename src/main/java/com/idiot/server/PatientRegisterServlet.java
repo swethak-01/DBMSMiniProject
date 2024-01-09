@@ -48,7 +48,7 @@ public class PatientRegisterServlet extends HttpServlet {
         pw.println("<td><a class='tag1' href='doctorList'>Doctors</a></td>");
         pw.println("</tr>");
         pw.println("<tr class=\"w3-hover\">");
-        pw.println("<td><a class='tag1' href='diseaseList'>Diseases</a></td>");
+        pw.println("<td><a class='tag1' href='prescriptionList'>Prescriptions</a></td>");
         pw.println("</tr>");
         pw.println("<tr class=\"w3-hover\">");
         pw.println("<td><a class='tag1' href='appointmentList'>Appointments</a></td>");
