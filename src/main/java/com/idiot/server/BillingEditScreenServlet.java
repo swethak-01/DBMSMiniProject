@@ -34,7 +34,7 @@ public class BillingEditScreenServlet extends HttpServlet {
     	pw.println("<body>");
     	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
     			+ "        			<a class='tag' href='AdminList'>ADMIN</a></header><br>\r\n"
-    			+ "<center><h3 class='h3'>EDIT BILLING DETAILS</h3></center>");
+    			+ "<center><h3 class='h3'>EDIT BILL DETAILS</h3></center>");
      //get the id of record
         int BillID=Integer.parseInt(req.getParameter("BillID"));
      // LOAD jdbc driver
