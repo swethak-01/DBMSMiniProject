@@ -33,7 +33,7 @@ public class BillingEditScreenServlet extends HttpServlet {
     	pw.println("</head>");
     	pw.println("<body>");
     	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
-    			+ "        			<a class='tag' href='Admin.html'>ADMIN</a></header><br>\r\n"
+    			+ "        			<a class='tag' href='AdminList'>ADMIN</a></header><br>\r\n"
     			+ "<center><h3 class='h3'>EDIT BILLING DETAILS</h3></center>");
      //get the id of record
         int BillID=Integer.parseInt(req.getParameter("BillID"));
@@ -95,7 +95,7 @@ public class BillingEditScreenServlet extends HttpServlet {
 
         	// Buttons
         	pw.println("<tr>");
-        	pw.println("<td><input class =\"button1\" type='submit' value='Edit'></td>");
+        	pw.println("<td><input style='margin-top:21%;'class =\"button1\" type='submit' value='Edit'></td>");
         	pw.println("<td><input class =\"button2\" type='reset' value='Reset'></td>");
         	pw.println("</tr>");
 
