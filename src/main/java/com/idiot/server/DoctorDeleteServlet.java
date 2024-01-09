@@ -22,6 +22,38 @@ public class DoctorDeleteServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         // set content type
         res.setContentType("text/html");
+        pw.println("<html>");
+    	pw.println("<head>");
+    	pw.println("<link rel='stylesheet' type='text/css' href='styles.css'>");
+    	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+    	pw.println("<meta charset=\"ISO-8859-1\">");
+    	pw.println("<title>Result</title>");
+    	pw.println("</head>");
+    	pw.println("<body>");
+    	pw.println("<header>\r\n"
+    			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
+    			+ "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
+    	pw.println("<center>\r\n"
+    	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">RESULT</h3>\r\n"
+    	        + "  </center>");
+    	pw.println("<table class=\"w3-table w3-bordered w3-border w3-centered\" style=\"width:16.5%\">");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='patientList'>Patients</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='doctorList'>Doctors</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='prescriptionList'>Prescriptions</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='appointmentList'>Appointments</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='billingList'>Bills</a></td>");
+        pw.println("</tr>");
+        pw.println("</table>");
         // get the id of the record
         int DoctorID = Integer.parseInt(req.getParameter("DoctorID"));
 
@@ -39,19 +71,19 @@ public class DoctorDeleteServlet extends HttpServlet {
             
             int count = ps.executeUpdate();
             if (count == 1) {
-                pw.println("<h2>Record is deleted successfully...</h2>");
+                pw.println("<h3 class='h3'>Record is deleted successfully...</h3>");
             } else {
-                pw.println("<h2>Record is not deleted successfully...</h2>");
+                pw.println("<h3 class='h3'>Record is not deleted successfully...</h3>");
             }
         } catch (SQLException se) {
             se.printStackTrace();
-            pw.println("<h1>" + se.getMessage() + "</h2>");
+            pw.println("<h3>" + se.getMessage() + "</h3>");
         } catch (Exception e) {
             e.printStackTrace();
-            pw.println("<h1>" + e.getMessage() + "</h2>");
+            pw.println("<h3>" + e.getMessage() + "</h3>");
         }
-        pw.println("<a href='AddDoctor.html'>Add Doctor</a>");
-        pw.println("<a href='doctorList'>Doctor List</a>");
+        pw.println("</body>");
+        pw.println("</html>");
     }
 
     @Override

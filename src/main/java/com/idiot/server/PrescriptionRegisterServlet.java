@@ -72,7 +72,7 @@ public class PrescriptionRegisterServlet extends HttpServlet {
             // Now 'patientDOB' contains the parsed date
         } catch (ParseException e) {
             // Handle the parse exception, e.g., invalid date format
-            pw.println("<h2>Error parsing date: " + e.getMessage() + "</h2>");
+            pw.println("<h3 class='h3'>Error parsing date: " + e.getMessage() + "</h3>");
             e.printStackTrace(); // Log the exception details for debugging
             return;
         }

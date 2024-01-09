@@ -25,6 +25,38 @@ public class AppointmentRegisterServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         // set content type
         res.setContentType("text/html");
+        pw.println("<html>");
+    	pw.println("<head>");
+    	pw.println("<link rel='stylesheet' type='text/css' href='styles.css'>");
+    	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+    	pw.println("<meta charset=\"ISO-8859-1\">");
+    	pw.println("<title>Result</title>");
+    	pw.println("</head>");
+    	pw.println("<body>");
+    	pw.println("<header>\r\n"
+    			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
+    			+ "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
+    	pw.println("<center>\r\n"
+    	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">RESULT</h3>\r\n"
+    	        + "  </center>");
+    	pw.println("<table class=\"w3-table w3-bordered w3-border w3-centered\" style=\"width:16.5%\">");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='patientList'>Patients</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='doctorList'>Doctors</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='prescriptionList'>Prescriptions</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='appointmentList'>Appointments</a></td>");
+        pw.println("</tr>");
+        pw.println("<tr class=\"w3-hover\">");
+        pw.println("<td><a class='tag1' href='billingList'>Bills</a></td>");
+        pw.println("</tr>");
+        pw.println("</table>");
      // GET THE patient info
         Integer patientID = Integer.parseInt(req.getParameter("patientID"));
         Integer doctorID = Integer.parseInt(req.getParameter("doctorID"));
@@ -37,7 +69,7 @@ public class AppointmentRegisterServlet extends HttpServlet {
             // Now 'appointmentDate1' contains the parsed date
         } catch (ParseException e) {
             // Handle the parse exception, e.g., invalid date format
-            pw.println("<h2>Invalid date format. Please use yyyy-MM-dd.</h2>");
+            pw.println("<h3 class='h3'>Invalid date format. Please use yyyy-MM-dd.</h3>");
             return;
         }
 
@@ -50,7 +82,7 @@ public class AppointmentRegisterServlet extends HttpServlet {
             // Now 'appointmentTime1' contains the parsed time
         } catch (ParseException e) {
             // Handle the parse exception, e.g., invalid time format
-            pw.println("<h2>Invalid time format. Please use HH:MM (24-hour clock).</h2>");
+            pw.println("<h3 class='h3'>Invalid time format. Please use HH:MM (24-hour clock).</h3>");
             return;
         }
 
@@ -77,20 +109,20 @@ public class AppointmentRegisterServlet extends HttpServlet {
             int count = ps.executeUpdate();
 
             if (count == 1) {
-                pw.println("<h2>Record is Registered Successfully...</h2>");
+                pw.println("<h3 class='h3'>Record is Registered Successfully...</h3>");
             } else {
-                pw.println("<h2>Record is not Registered Successfully...</h2>");
+                pw.println("<h3 class='h3'>Record is not Registered Successfully...</h3>");
             }
             ps.setString(4, appointmentStatus);
         } catch (SQLException se) {
             se.printStackTrace();
-            pw.println("<h1>"+se.getMessage()+"</h2>");
+            pw.println("<h3 class='h3'>"+se.getMessage()+"</h3>");
         } catch (Exception e) {
             e.printStackTrace();
-            pw.println("<h1>"+e.getMessage()+"</h2>");
+            pw.println("<h3 class='h3'>"+e.getMessage()+"</h3>");
         }
-        pw.println("<a href='AddAppointment.html'>Add Appointment</a>");
-        pw.println("<a href='appointmentList'>Appointment List</a>");
+        pw.println("</body>");
+        pw.println("</html>");
     }
         		@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
