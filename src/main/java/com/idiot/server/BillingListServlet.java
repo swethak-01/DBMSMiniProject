@@ -75,9 +75,9 @@ pw.println("<a href='AddBilling.html' class=\"button\" style=\"vertical-align:mi
                 pw.println("<td>" + rs.getFloat(5) +"</td>");
                 pw.println("<td>" + rs.getString(6) + "</td>");
                 pw.println("<td>" + rs.getDate(7) + "</td>");
-                pw.println("<td><a href='BillingEditScreen?BillID="+rs.getInt("BillID")+"'>Edit</a></td>");
+                pw.println("<td><a class='tag2' href='BillingEditScreen?BillID="+rs.getInt("BillID")+"'>Edit</a></td>");
 
-                pw.println("<td><a href='billingdeleteurl?BillID="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a class='tag2' href='billingdeleteurl?BillID="+rs.getInt(1)+"'>Delete</a></td>");
                 pw.println("</tr>");
 
         	}
