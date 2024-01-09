@@ -13,9 +13,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-@WebServlet("/DiseaseEditScreen")
-public class DiseaseEditScreenServlet extends HttpServlet {
-	private static final String query = "SELECT DiseaseName, Vaccination, Symptoms, Treatment FROM HOSPITALMANAGEMENT.DISEASE where DiseaseID=?";
+@WebServlet("/PrescriptionEditScreen")
+public class PrescriptionEditScreenServlet extends HttpServlet {
+	private static final String query = "SELECT DoctorID, PatientID, Diagnosis, Medication, PrescriptionDate FROM HOSPITALMANAGEMENT.PRESCRIPTION where PrescriptionID=?";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -24,7 +24,7 @@ public class DiseaseEditScreenServlet extends HttpServlet {
         // set content type
         res.setContentType("text/html");
      //get the id of record
-        int DiseaseID=Integer.parseInt(req.getParameter("DiseaseID"));
+        int PrescriptionID=Integer.parseInt(req.getParameter("PrescriptionID"));
      // LOAD jdbc driver
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -34,34 +34,37 @@ public class DiseaseEditScreenServlet extends HttpServlet {
      // generate the connection
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
         	PreparedStatement ps = con.prepareStatement(query);){
-        	ps.setInt(1, DiseaseID);
+        	ps.setInt(1, PrescriptionID);
         	ResultSet rs=ps.executeQuery();
         	rs.next();
-        	pw.println("<form action='diseaseediturl?DiseaseID=" + DiseaseID + "' method='post'>");
+        	pw.println("<form action='prescriptionediturl?PrescriptionID=" + PrescriptionID + "' method='post'>");
         	pw.println("<table>");
 
         	// First Column
         	pw.println("<tr>");
-        	pw.println("<td>Disease Name:</td>");
-        	pw.println("<td><input type='text' name='diseaseName' value='" + rs.getString(1) + "'></td>");
+        	pw.println("<td>Doctor ID:</td>");
+        	pw.println("<td><input type='text' name='DoctorID' value='" + rs.getString(1) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
-        	pw.println("<td>Vaccination:</td>");
-        	pw.println("<td><input type='text' name='vaccination' value='" + rs.getString(2) + "'></td>");
-        	pw.println("</tr>");
-
-        	// Second Column
-        	pw.println("<tr>");
-        	pw.println("<td>Symptoms:</td>");
-        	pw.println("<td><input type='text' name='symptoms' value='" + rs.getString(3) + "'></td>");
+        	pw.println("<td>Patient ID:</td>");
+        	pw.println("<td><input type='text' name='PatientID' value='" + rs.getString(2) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
-        	pw.println("<td>Treatment:</td>");
-        	pw.println("<td><input type='text' name='treatment' value='" + rs.getString(4) + "'></td>");
+        	pw.println("<td>Diagnosis:</td>");
+        	pw.println("<td><input type='text' name='Diagnosis' value='" + rs.getString(3) + "'></td>");
         	pw.println("</tr>");
-
+        	
+        	pw.println("<tr>");
+        	pw.println("<td>Medication:</td>");
+        	pw.println("<td><input type='text' name='Medication' value='" + rs.getString(4) + "'></td>");
+        	pw.println("</tr>");
+        	
+        	pw.println("<tr>");
+        	pw.println("<td>Prescription Date:</td>");
+        	pw.println("<td><input type='date' name='PrescriptionDate' value='" + rs.getDate(5) + "'></td>");
+        	pw.println("</tr>");
 
         	// Buttons
         	pw.println("<tr>");
@@ -79,8 +82,8 @@ public class DiseaseEditScreenServlet extends HttpServlet {
             e.printStackTrace();
             pw.println("<h1>"+e.getMessage()+"</h2>");
         }
-        pw.println("<a href='AddDisease.html'>Add Disease</a>");
-        pw.println("<a href='diseaseList'>Disease List</a>");
+        pw.println("<a href='AddPrescription.html'>Add Prescription</a>");
+        pw.println("<a href='prescriptionList'>Prescription List</a>");
     }
         		@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {

@@ -15,9 +15,9 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-@WebServlet("/diseasedeleteurl")
-public class DiseaseDeleteServlet extends HttpServlet {
-	private static final String query = "delete from HOSPITALMANAGEMENT.DISEASE  where DiseaseID=?";
+@WebServlet("/prescriptiondeleteurl")
+public class PrescriptionDeleteServlet extends HttpServlet {
+	private static final String query = "delete from HOSPITALMANAGEMENT.PRESCRIPTION  where PrescriptionID=?";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -26,7 +26,7 @@ public class DiseaseDeleteServlet extends HttpServlet {
         // set content type
         res.setContentType("text/html");
         // get the id of the record
-        int DiseaseID = Integer.parseInt(req.getParameter("DiseaseID"));
+        int PrescriptionID = Integer.parseInt(req.getParameter("PrescriptionID"));
 
         
         // LOAD jdbc driver
@@ -38,7 +38,7 @@ public class DiseaseDeleteServlet extends HttpServlet {
         // generate the connection
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
                 PreparedStatement ps = con.prepareStatement(query);) {
-         ps.setInt(1, DiseaseID);
+         ps.setInt(1, PrescriptionID);
             
             int count = ps.executeUpdate();
             if (count == 1) {
@@ -53,8 +53,8 @@ public class DiseaseDeleteServlet extends HttpServlet {
             e.printStackTrace();
             pw.println("<h1>" + e.getMessage() + "</h2>");
         }
-        pw.println("<a href='AddDisease.html'>Add Disease</a>");
-        pw.println("<a href='diseaseList'>Disease List</a>");
+        pw.println("<a href='AddPrescription.html'>Add Prescription</a>");
+        pw.println("<a href='prescriptionList'>Prescription List</a>");
     }
 
     @Override

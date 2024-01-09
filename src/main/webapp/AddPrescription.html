@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Prescription</title>
+<style>
+  * {
+    margin: 0%;
+    padding: 0%;
+  }
+
+  body {
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    height: 100vh;
+    padding: 10px;
+    color: #290066;
+    background-color: white;
+  }
+
+  span {
+    padding-left: 20px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    font-size: 35px;
+  }
+
+  .tag1 {
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    margin-left: 60%;
+  }
+
+  header {
+    background: linear-gradient(to top, #ccccff 0%, #ffffff 100%);
+    color: #290066;
+    text-align: left;
+    padding: 20px;
+    padding-left: 30px;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+  }
+  h3 {
+      padding-left: 20px;
+      font-family: 'Courier New', monospace;
+      font-weight: bold;
+      font-size: 25px;
+      padding-left: 80px;
+    }
+    .content {
+	width: 80%;
+	padding: 20px;
+}
+    .add{
+font-family: 'Courier New', monospace;
+margin-top:40px;
+display:inline-border;
+border-color:#290066;
+border-style:solid;
+border-width:7px;
+width:500px;
+margin-left:6%;
+padding:25px;
+font-weight:bold;
+margin-top:0%;
+}
+.radio1{
+	margin-top:5%;
+}
+.box{
+width:270px;
+height:30px;
+margin-top:5%;
+}
+.button1{
+width:70px;
+height:27px;
+background-color:white;
+font-weight:bold;
+color:#290066;
+margin-left:50%;
+margin-top:10%;}
+.button1:hover{
+background-color:#290066;
+font-weight:bold;
+color:white;
+}
+.button2{
+width:70px;
+height:27px;
+background-color:white;
+font-weight:bold;
+color:#290066;
+margin-left:25%;
+margin-top:10%;}
+.button2:hover{
+background-color:#290066;
+font-weight:bold;
+color:white;
+}
+</style>
+</head>
+<body>
+	<header> <span>GLOBAL HOSPITALS...</span>
+        			<a class='tag1' href='Admin.html'>ADMIN</a></header><br>
+<center><h3>ADD PRESCRIPTION DETAILS</h3></center>
+<center>
+	<div class="content">
+		<nav class='add'>
+<form action="PrescriptionRegister" method="post">
+	<table>
+		<tr>
+			<td>Doctor ID:</td>
+			<td><input class="box" type="text" name="DoctorID" placeholder="Enter Doctor ID"</td>
+		</tr>
+		<tr>
+			<td>Patient ID:</td>
+			<td><input class="box" type="text" name="PatientID" placeholder="Enter Patient ID"</td>
+		</tr>
+		<tr>
+			<td>Diagnosis:</td>
+			<td><input class="box" type="text" name="Diagnosis" placeholder="Enter Diagnosis"</td>
+		</tr>
+		<tr>
+			<td>Medication:</td>
+			<td><input class="box" type="text" name="Medication" placeholder="Enter Medication"</td>
+		</tr>
+		<tr>
+			<td>Prescription Date:</td>
+			<td><input class="box" type="date" name="PrescriptionDate"</td>
+		</tr>
+		<center>
+		<tr>
+			
+			<td><input class ="button1" type="submit" value="Submit"</td>
+			<td><input class ="button2" type="reset" value="Reset"</td>
+			
+		</tr>
+		</center>
+	</table>
+
+</form>
+</nav>
+</div>
+</center>
+</body>
+</html>
