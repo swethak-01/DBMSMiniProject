@@ -18,7 +18,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @jakarta.servlet.annotation.WebServlet("/billingediturl")
 public class BillingEditServlet extends HttpServlet {
-    private static final String query = "update HOSPITALMANAGEMENT.BILLING set PatientID=?,BillDate=?, TotalAmount=?, PaymentStatus=?, DiseaseID=?  where BillID=?";
+    private static final String query = "update HOSPITALMANAGEMENT.BILLING set PatientID=?,DoctorID=?,PrescriptionID=?, TotalAmount=?, PaymentStatus=?,BillingDate=?  where BillID=?";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -31,18 +31,9 @@ public class BillingEditServlet extends HttpServlet {
 
         // get the edited data we want to edit
         int PatientID = Integer.parseInt(req.getParameter("PatientID"));
-        String BillD = req.getParameter("BillDate");
-        Date BillDate = null;
-
-        try {
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-            BillDate = dateFormat.parse(BillD);
-            // Now 'patientDOB' contains the parsed date
-        } catch (ParseException e) {
-            // Handle the parse exception, e.g., invalid date format
-            pw.println("<h2>Invalid date format. Please use yyyy-MM-dd.</h2>");
-            return;
-        }
+        int DoctorID = Integer.parseInt(req.getParameter("DoctorID"));
+        int PrescriptionID = Integer.parseInt(req.getParameter("PrescriptionID"));
+        
 
        float TotalAmount=Float.parseFloat(req.getParameter("TotalAmount"));
        
@@ -53,7 +44,18 @@ public class BillingEditServlet extends HttpServlet {
      // Check if the gender is not selected
      
 
-        int DiseaseID = Integer.parseInt(req.getParameter("DiseaseID"));
+       String BillingD = req.getParameter("BillingDate");
+       Date BillingDate = null;
+
+       try {
+           SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+           BillingDate = dateFormat.parse(BillingD);
+           // Now 'patientDOB' contains the parsed date
+       } catch (ParseException e) {
+           // Handle the parse exception, e.g., invalid date format
+           pw.println("<h2>Invalid date format. Please use yyyy-MM-dd.</h2>");
+           return;
+       }
 
      // Check if the gender is not selected
      
@@ -70,12 +72,12 @@ public class BillingEditServlet extends HttpServlet {
         try (Connection con = DriverManager.getConnection("jdbc:mysql:///hospitalmanagement", "root", "root");
                 PreparedStatement ps = con.prepareStatement(query);) {
         	 ps.setInt(1, PatientID);
-             ps.setDate(2, new java.sql.Date(BillDate.getTime()));
-
-             ps.setFloat(3, TotalAmount);
-             ps.setString(4, PaymentStatus);
-             ps.setInt(5, DiseaseID);
-             ps.setInt(6, BillID);
+        	 ps.setInt(2, DoctorID);
+        	 ps.setInt(3, PrescriptionID);
+             ps.setFloat(4, TotalAmount);
+             ps.setString(5, PaymentStatus);
+             ps.setDate(6, new java.sql.Date(BillingDate.getTime()));
+             ps.setInt(7, BillID);
          
             int count = ps.executeUpdate();
             if (count == 1) {

@@ -17,7 +17,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 @jakarta.servlet.annotation.WebServlet("/billingList")
 public class BillingListServlet extends HttpServlet {
-	private static final String query = "SELECT BillID,PatientID, BillDate, TotalAmount, PaymentStatus, DiseaseID FROM HOSPITALMANAGEMENT.BILLING";
+	private static final String query = "SELECT BillID,PatientID,DoctorID,PrescriptionID,  TotalAmount, PaymentStatus, BillingDate FROM HOSPITALMANAGEMENT.BILLING";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -56,10 +56,11 @@ pw.println("<a href='AddBilling.html' class=\"button\" style=\"vertical-align:mi
         	pw.println("<tr class=\"w3-hover\" style=\"background-color: #290066; color: white;\">");
             pw.println("<th>Bill ID</th>");
             pw.println("<th>Patient ID</th>");
-            pw.println("<th>BillDate</th>");
+            pw.println("<th>Doctor ID</th>");
+            pw.println("<th>Prescription ID</th>");
             pw.println("<th>TotalAmount</th>");
             pw.println("<th>PaymentStatus</th>");
-            pw.println("<th>DiseaseID</th>");
+            pw.println("<th>BillingDate</th>");
             pw.println("<th>Edit</th>");
             pw.println("<th>Delete</th>");
             pw.println("</tr>");
@@ -68,10 +69,12 @@ pw.println("<a href='AddBilling.html' class=\"button\" style=\"vertical-align:mi
         		pw.println("<tr>");
                 pw.println("<td>" + rs.getInt(1) + "</td>");
                 pw.println("<td>" + rs.getInt(2) + "</td>");
-                pw.println("<td>" + rs.getDate(3) + "</td>");
-                pw.println("<td>" + rs.getFloat(4) +"</td>");
-                pw.println("<td>" + rs.getString(5) + "</td>");
-                pw.println("<td>" + rs.getInt(6) + "</td>");
+                pw.println("<td>" + rs.getInt(3) + "</td>");
+                pw.println("<td>" + rs.getInt(4) + "</td>");
+              
+                pw.println("<td>" + rs.getFloat(5) +"</td>");
+                pw.println("<td>" + rs.getString(6) + "</td>");
+                pw.println("<td>" + rs.getDate(7) + "</td>");
                 pw.println("<td><a href='BillingEditScreen?BillID="+rs.getInt("BillID")+"'>Edit</a></td>");
 
                 pw.println("<td><a href='billingdeleteurl?BillID="+rs.getInt(1)+"'>Delete</a></td>");

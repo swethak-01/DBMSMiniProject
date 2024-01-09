@@ -15,7 +15,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 @WebServlet("/BillingEditScreen")
 public class BillingEditScreenServlet extends HttpServlet {
-	private static final String query = "SELECT PatientID, BillDate, TotalAmount, PaymentStatus, DiseaseID FROM HOSPITALMANAGEMENT.BILLING where BillID=?";
+	private static final String query = "SELECT PatientID,DoctorID,PrescriptionID,TotalAmount, PaymentStatus, BillingDate FROM HOSPITALMANAGEMENT.BILLING where BillID=?";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -45,15 +45,21 @@ public class BillingEditScreenServlet extends HttpServlet {
         	pw.println("<td>Patient ID:</td>");
         	pw.println("<td><input type='text' name='PatientID' value='" + rs.getInt(1) + "'></td>");
         	pw.println("</tr>");
-
+        	
         	pw.println("<tr>");
-        	pw.println("<td>Bill Date:</td>");
-        	pw.println("<td><input type='date' name='BillDate' value='" + rs.getDate(2) + "'></td>");
+        	pw.println("<td>Doctor ID:</td>");
+        	pw.println("<td><input type='text' name='DoctorID' value='" + rs.getInt(2) + "'></td>");
+        	pw.println("</tr>");
+        	
+        	pw.println("<tr>");
+        	pw.println("<td>Prescription ID:</td>");
+        	pw.println("<td><input type='text' name='PrescriptionID' value='" + rs.getInt(3) + "'></td>");
         	pw.println("</tr>");
 
+        	
         	pw.println("<tr>");
         	pw.println("<td>Total Amount:</td>");
-        	pw.println("<td><input type='float' name='TotalAmount' value='" + rs.getFloat(3) + "'></td>");
+        	pw.println("<td><input type='float' name='TotalAmount' value='" + rs.getFloat(4) + "'></td>");
         	pw.println("</tr>");
 
         	
@@ -61,13 +67,14 @@ public class BillingEditScreenServlet extends HttpServlet {
         	// Second Column
         	pw.println("<tr>");
         	pw.println("<td>Payment Status:</td>");
-        	pw.println("<td><input type='text' name='PaymentStatus' value='" + rs.getString(4) + "'></td>");
+        	pw.println("<td><input type='text' name='PaymentStatus' value='" + rs.getString(5) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
-        	pw.println("<td>Disease ID:</td>");
-        	pw.println("<td><input type='text' name='DiseaseID' value='" + rs.getInt(5) + "'></td>");
+        	pw.println("<td>Billing Date:</td>");
+        	pw.println("<td><input type='date' name='BillingDate' value='" + rs.getDate(6) + "'></td>");
         	pw.println("</tr>");
+
 
         	
 
