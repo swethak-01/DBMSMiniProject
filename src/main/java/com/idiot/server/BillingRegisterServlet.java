@@ -104,16 +104,16 @@ public class BillingRegisterServlet extends HttpServlet {
              ps.setDate(6, new java.sql.Date(BillingDate.getTime()));
             int count = ps.executeUpdate();
             if (count == 1) {
-                pw.println("<h2>Record is Registered Successfully...</h2>");
+            	 pw.println("<h3 class='h3'>Record is Registered Successfully...</h3>");
             } else {
-                pw.println("<h2>Record is not Registered Successfully...</h2>");
+                pw.println("<h3 class='h3'>Record is not Registered Successfully...</h3>");
             }
         } catch (SQLException se) {
             se.printStackTrace();
-            pw.println("<h1>"+se.getMessage()+"</h2>");
+            pw.println("<h3>"+se.getMessage()+"</h3>");
         } catch (Exception e) {
             e.printStackTrace();
-            pw.println("<h1>"+e.getMessage()+"</h2>");
+            pw.println("<h3>"+e.getMessage()+"</h3>");
         }
         pw.println("</body>");
         pw.println("</html>");

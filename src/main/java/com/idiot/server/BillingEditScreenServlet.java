@@ -23,6 +23,18 @@ public class BillingEditScreenServlet extends HttpServlet {
         PrintWriter pw = res.getWriter();
         // set content type
         res.setContentType("text/html");
+        pw.println("<html>");
+    	pw.println("<head>");
+    	pw.println("<link rel='stylesheet' type='text/css' href='styleedit.css'>");
+    	pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
+    	pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
+    	pw.println("<meta charset=\"ISO-8859-1\">");
+    	pw.println("<title>Edit Bill </title>");
+    	pw.println("</head>");
+    	pw.println("<body>");
+    	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
+    			+ "        			<a class='tag' href='Admin.html'>ADMIN</a></header><br>\r\n"
+    			+ "<center><h3 class='h3'>EDIT BILLING DETAILS</h3></center>");
      //get the id of record
         int BillID=Integer.parseInt(req.getParameter("BillID"));
      // LOAD jdbc driver
@@ -37,29 +49,32 @@ public class BillingEditScreenServlet extends HttpServlet {
         	ps.setInt(1, BillID);
         	ResultSet rs=ps.executeQuery();
         	rs.next();
+        	pw.println("<center>");
+        	pw.println("<div class=\"content\">");
+        	pw.println("<nav class='add'>");
         	pw.println("<form action='billingediturl?BillID=" + BillID + "' method='post'>");
         	pw.println("<table>");
 
         	// First Column
         	pw.println("<tr>");
         	pw.println("<td>Patient ID:</td>");
-        	pw.println("<td><input type='text' name='PatientID' value='" + rs.getInt(1) + "'></td>");
+        	pw.println("<td><input class=\"box\"  type='text' name='PatientID' value='" + rs.getInt(1) + "'></td>");
         	pw.println("</tr>");
         	
         	pw.println("<tr>");
         	pw.println("<td>Doctor ID:</td>");
-        	pw.println("<td><input type='text' name='DoctorID' value='" + rs.getInt(2) + "'></td>");
+        	pw.println("<td><input class=\"box\" type='text' name='DoctorID' value='" + rs.getInt(2) + "'></td>");
         	pw.println("</tr>");
         	
         	pw.println("<tr>");
         	pw.println("<td>Prescription ID:</td>");
-        	pw.println("<td><input type='text' name='PrescriptionID' value='" + rs.getInt(3) + "'></td>");
+        	pw.println("<td><input class=\"box\" type='text' name='PrescriptionID' value='" + rs.getInt(3) + "'></td>");
         	pw.println("</tr>");
 
         	
         	pw.println("<tr>");
         	pw.println("<td>Total Amount:</td>");
-        	pw.println("<td><input type='float' name='TotalAmount' value='" + rs.getFloat(4) + "'></td>");
+        	pw.println("<td><input class=\"box\" type='float' name='TotalAmount' value='" + rs.getFloat(4) + "'></td>");
         	pw.println("</tr>");
 
         	
@@ -67,12 +82,12 @@ public class BillingEditScreenServlet extends HttpServlet {
         	// Second Column
         	pw.println("<tr>");
         	pw.println("<td>Payment Status:</td>");
-        	pw.println("<td><input type='text' name='PaymentStatus' value='" + rs.getString(5) + "'></td>");
+        	pw.println("<td><input class=\"box\" type='text' name='PaymentStatus' value='" + rs.getString(5) + "'></td>");
         	pw.println("</tr>");
 
         	pw.println("<tr>");
         	pw.println("<td>Billing Date:</td>");
-        	pw.println("<td><input type='date' name='BillingDate' value='" + rs.getDate(6) + "'></td>");
+        	pw.println("<td><input class=\"box\" type='date' name='BillingDate' value='" + rs.getDate(6) + "'></td>");
         	pw.println("</tr>");
 
 
@@ -80,8 +95,8 @@ public class BillingEditScreenServlet extends HttpServlet {
 
         	// Buttons
         	pw.println("<tr>");
-        	pw.println("<td><input type='submit' value='Edit'></td>");
-        	pw.println("<td><input type='reset' value='Reset'></td>");
+        	pw.println("<td><input class =\"button1\" type='submit' value='Edit'></td>");
+        	pw.println("<td><input class =\"button2\" type='reset' value='Reset'></td>");
         	pw.println("</tr>");
 
         	pw.println("</table>");
@@ -94,8 +109,11 @@ public class BillingEditScreenServlet extends HttpServlet {
             e.printStackTrace();
             pw.println("<h1>"+e.getMessage()+"</h2>");
         }
-        pw.println("<a href='AddBilling.html'>Add Billing</a>");
-        pw.println("<a href='billingList'>Billing List</a>");
+        pw.println("</nav>");
+        pw.println("</div>");
+        pw.println("</center>");
+        pw.println("</body>");
+        pw.println("</html>");
     }
         		@Override
     protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
