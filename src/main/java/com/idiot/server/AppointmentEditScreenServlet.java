@@ -33,7 +33,7 @@ public class AppointmentEditScreenServlet extends HttpServlet {
     	pw.println("</head>");
     	pw.println("<body>");
     	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
-    			+ "        			<a class='tag' href='Admin.html'>ADMIN</a></header><br>\r\n"
+    			+ "        			<a class='tag' href='AdminList'>ADMIN</a></header><br>\r\n"
     			+ "<center><h3 class='h3'>EDIT APPOINTMENT DETAILS</h3></center>");
      //get the id of record
         int AppointmentID=Integer.parseInt(req.getParameter("AppointmentID"));

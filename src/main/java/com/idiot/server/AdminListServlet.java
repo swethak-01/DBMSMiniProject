@@ -84,9 +84,13 @@ public class AdminListServlet extends HttpServlet {
 
             // Display counts
             displayCount(pw, "Patients", rs1);
+            pw.println("<hr>");
             displayCount(pw, "Doctors", rs2);
+            pw.println("<hr>");
             displayCount(pw, "Appointments", rs3);
+            pw.println("<hr>");
             displayCount(pw, "Prescriptions", rs4);
+            pw.println("<hr>");
             displayCount(pw, "Billing Records", rs5);
 
             pw.println("</table>");

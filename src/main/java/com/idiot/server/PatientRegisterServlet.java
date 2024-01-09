@@ -36,7 +36,7 @@ public class PatientRegisterServlet extends HttpServlet {
     	pw.println("<body>");
     	pw.println("<header>\r\n"
     			+ "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
-    			+ "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
+    			+ "  <a class='tag' href='AdminList'>ADMIN</a></header><br>");
     	pw.println("<center>\r\n"
     	        + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">RESULT</h3>\r\n"
     	        + "  </center>");

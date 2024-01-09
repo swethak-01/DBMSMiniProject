@@ -33,7 +33,7 @@ public class PrescriptionEditScreenServlet extends HttpServlet {
     	pw.println("</head>");
     	pw.println("<body>");
     	pw.println("<header> <span>GLOBAL HOSPITALS...</span>\r\n"
-    			+ "        			<a class='tag' href='Admin.html'>ADMIN</a></header><br>\r\n"
+    			+ "        			<a class='tag' href='AdminList'>ADMIN</a></header><br>\r\n"
     			+ "<center><h3 class='h3'>EDIT PRESCRIPTION DETAILS</h3></center>");
      //get the id of record
         int PrescriptionID=Integer.parseInt(req.getParameter("PrescriptionID"));
