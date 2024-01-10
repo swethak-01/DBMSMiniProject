@@ -34,15 +34,15 @@ public class AdminListServlet extends HttpServlet {
         pw.println("<meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">");
         pw.println("<link rel=\"stylesheet\" href=\"https://www.w3schools.com/w3css/4/w3.css\">");
         pw.println("<meta charset=\"ISO-8859-1\">");
-        pw.println("<title>Result</title>");
+        pw.println("<title>Admin</title>");
         pw.println("</head>");
         pw.println("<body>");
         pw.println("<header>\r\n" + "    <span class=\"h1\">GLOBAL HOSPITALS...</span>\r\n"
                 + "  <a class='tag' href='Admin.html'>ADMIN</a></header><br>");
         pw.println("<center>\r\n"
-                + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">RESULT</h3>\r\n"
+                + "    <h3 style=\"font-family: 'Courier New', monospace; font-weight: bold; font-size: 25px;\">DASHBOARD</h3>\r\n"
                 + "  </center>");
-        pw.println("<table class=\"w3-table w3-bordered w3-border w3-centered\" style=\"width:16.5%\">");
+        pw.println("<table class=\"w3-table w3-bordered w3-border w3-centered\" style='width:16.5%;margin-top:10px;'>");
         pw.println("<tr class=\"w3-hover\">");
         pw.println("<td><a class='tag1' href='patientList'>Patients</a></td>");
         pw.println("</tr>");
@@ -80,20 +80,44 @@ public class AdminListServlet extends HttpServlet {
             ResultSet rs4 = ps4.executeQuery();
             ResultSet rs5 = ps5.executeQuery();
 
+            
+            pw.println("<style>");
+            pw.println(".alter {");
+            pw.println("    color: black !important;");
+            pw.println("    height: 2px !important;"); // Adjust the height as needed
+            pw.println("    background-color: #260099 !important;");
+            pw.println("    border: none !important;");
+            pw.println("    width: 100% !important;");
+            pw.println("}");
+            pw.println("table {");
+            pw.println("    margin-bottom: -155px;");
+            pw.println("}");
+            pw.println(".count {");
+            pw.println("    font-size: 18px;"); // Adjust the font size as needed
+            pw.println("}");
+            pw.println("</style>");
+
+            pw.println("<center>");
             pw.println("<table>");
 
             // Display counts
             displayCount(pw, "Patients", rs1);
-            pw.println("<hr>");
+            pw.println("<tr><td colspan=\"2\"><hr class=\"alter\"></td></tr>");
+
             displayCount(pw, "Doctors", rs2);
-            pw.println("<hr>");
+            pw.println("<tr><td colspan=\"2\"><hr class=\"alter\"></td></tr>");
+
             displayCount(pw, "Appointments", rs3);
-            pw.println("<hr>");
+            pw.println("<tr><td colspan=\"2\"><hr class=\"alter\"></td></tr>");
+
             displayCount(pw, "Prescriptions", rs4);
-            pw.println("<hr>");
-            displayCount(pw, "Billing Records", rs5);
+            pw.println("<tr><td colspan=\"2\"><hr class=\"alter\"></td></tr>");
+
+            displayCount(pw, "Billing", rs5);
 
             pw.println("</table>");
+            pw.println("</center>");
+
             pw.println("</body>");
             pw.println("</html>");
 
