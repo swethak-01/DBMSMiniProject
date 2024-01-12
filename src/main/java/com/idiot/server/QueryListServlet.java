@@ -32,14 +32,14 @@ public class QueryListServlet extends HttpServlet {
     		+ "HAVING TotalBillingAmount = (SELECT MAX(TotalAmount) FROM (SELECT SUM(TotalAmount) AS TotalAmount FROM hospitalmanagement.billing GROUP BY PatientID) AS MaxBilling)\r\n"
     		+ "    OR TotalBillingAmount = (SELECT MIN(TotalAmount) FROM (SELECT SUM(TotalAmount) AS TotalAmount FROM hospitalmanagement.billing GROUP BY PatientID) AS MinBilling);\r\n"
     		+ "";
-    private static final String query4 = "SELECT a1.PatientID,p.FirstName AS PatientFirstName, p.LastName AS PatientLastName, \r\n"
-    		+ "       a1.Date AS AppointmentDate1, a2.Date AS AppointmentDate2\r\n"
-    		+ "FROM hospitalmanagement.appointment a1\r\n"
-    		+ "INNER JOIN hospitalmanagement.appointment a2 ON a1.PatientID = a2.PatientID\r\n"
-    		+ "    AND a1.DoctorID = a2.DoctorID\r\n"
-    		+ "    AND DATEDIFF(a2.Date, a1.Date) = 1\r\n"
-    		+ "INNER JOIN hospitalmanagement.patient p ON a1.PatientID = p.PatientID;\r\n"
-    		+ ";
+    private static final String query4 = "SELECT a1.PatientID, p.FirstName AS PatientFirstName, p.LastName AS PatientLastName, "
+            + "a1.Date AS AppointmentDate1, a2.Date AS AppointmentDate2 "
+            + "FROM hospitalmanagement.appointment a1 "
+            + "INNER JOIN hospitalmanagement.appointment a2 ON a1.PatientID = a2.PatientID "
+            + "AND a1.DoctorID = a2.DoctorID "
+            + "AND DATEDIFF(a2.Date, a1.Date) = 1 "
+            + "INNER JOIN hospitalmanagement.patient p ON a1.PatientID = p.PatientID";
+
     private static final String query5 = "SELECT d.DoctorID, d.FirstName, d.LastName\r\n"
     		+ "FROM hospitalmanagement.doctor d\r\n"
     		+ "INNER JOIN hospitalmanagement.appointment a ON d.DoctorID = a.DoctorID\r\n"
