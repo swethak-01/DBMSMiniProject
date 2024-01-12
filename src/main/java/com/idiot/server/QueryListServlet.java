@@ -32,12 +32,14 @@ public class QueryListServlet extends HttpServlet {
     		+ "HAVING TotalBillingAmount = (SELECT MAX(TotalAmount) FROM (SELECT SUM(TotalAmount) AS TotalAmount FROM hospitalmanagement.billing GROUP BY PatientID) AS MaxBilling)\r\n"
     		+ "    OR TotalBillingAmount = (SELECT MIN(TotalAmount) FROM (SELECT SUM(TotalAmount) AS TotalAmount FROM hospitalmanagement.billing GROUP BY PatientID) AS MinBilling);\r\n"
     		+ "";
-    private static final String query4 = "SELECT a1.PatientID, a1.Date AS AppointmentDate1, a2.Date AS AppointmentDate2\r\n"
+    private static final String query4 = "SELECT a1.PatientID,p.FirstName AS PatientFirstName, p.LastName AS PatientLastName, \r\n"
+    		+ "       a1.Date AS AppointmentDate1, a2.Date AS AppointmentDate2\r\n"
     		+ "FROM hospitalmanagement.appointment a1\r\n"
     		+ "INNER JOIN hospitalmanagement.appointment a2 ON a1.PatientID = a2.PatientID\r\n"
     		+ "    AND a1.DoctorID = a2.DoctorID\r\n"
-    		+ "    AND DATEDIFF(a2.Date, a1.Date) = 1;\r\n"
-    		+ "";
+    		+ "    AND DATEDIFF(a2.Date, a1.Date) = 1\r\n"
+    		+ "INNER JOIN hospitalmanagement.patient p ON a1.PatientID = p.PatientID;\r\n"
+    		+ ";
     private static final String query5 = "SELECT d.DoctorID, d.FirstName, d.LastName\r\n"
     		+ "FROM hospitalmanagement.doctor d\r\n"
     		+ "INNER JOIN hospitalmanagement.appointment a ON d.DoctorID = a.DoctorID\r\n"
@@ -165,18 +167,18 @@ public class QueryListServlet extends HttpServlet {
                    pw.println("3)List patients who have the highest and lowest total billing amounts:");
                    pw.println("<table class=\"w3-table-all w3-centered\">");
                    pw.println("<tr class=\"w3-hover\" style=\"background-color: #290066; color: white;\">");
-                   pw.println("<th>Doctor ID</th>");
+                   pw.println("<th>Patient ID</th>");
                    pw.println("<th>First Name</th>");
                    pw.println("<th>Last Name</th>");
-                   pw.println("<th>Average Billing Amount</th>");
+                   pw.println("<th>Total Billing Amount</th>");
                    pw.println("</tr>");
 
-                   while (rs2.next()) {
+                   while (rs3.next()) {
                        pw.println("<tr>");
-                       pw.println("<td>" + rs2.getInt(1) + "</td>");
-                       pw.println("<td>" + rs2.getString(2) + "</td>");
-                       pw.println("<td>" + rs2.getString(3) + "</td>");
-                       pw.println("<td>" + rs2.getFloat(4) + "</td>");
+                       pw.println("<td>" + rs3.getInt(1) + "</td>");
+                       pw.println("<td>" + rs3.getString(2) + "</td>");
+                       pw.println("<td>" + rs3.getString(3) + "</td>");
+                       pw.println("<td>" + rs3.getFloat(4) + "</td>");
                        pw.println("</tr>");
                    }
 
@@ -193,18 +195,21 @@ public class QueryListServlet extends HttpServlet {
                    pw.println("4)Find patients who have appointments with the same doctor on consecutive days:");
                    pw.println("<table class=\"w3-table-all w3-centered\">");
                    pw.println("<tr class=\"w3-hover\" style=\"background-color: #290066; color: white;\">");
-                   pw.println("<th>Doctor ID</th>");
+                   pw.println("<th>Patint ID</th>");
                    pw.println("<th>First Name</th>");
                    pw.println("<th>Last Name</th>");
+                   pw.println("<th>Appointment Date 1</th>");
+                   pw.println("<th>Appointment Date 2</th>");
                    pw.println("<th>Average Billing Amount</th>");
                    pw.println("</tr>");
 
-                   while (rs2.next()) {
+                   while (rs4.next()) {
                        pw.println("<tr>");
-                       pw.println("<td>" + rs2.getInt(1) + "</td>");
-                       pw.println("<td>" + rs2.getString(2) + "</td>");
-                       pw.println("<td>" + rs2.getString(3) + "</td>");
-                       pw.println("<td>" + rs2.getFloat(4) + "</td>");
+                       pw.println("<td>" + rs4.getInt(1) + "</td>");
+                       pw.println("<td>" + rs4.getString(2) + "</td>");
+                       pw.println("<td>" + rs4.getString(3) + "</td>");
+                       pw.println("<td>" + rs4.getDate(4) + "</td>");
+                       pw.println("<td>" + rs4.getDate(5) + "</td>");
                        pw.println("</tr>");
                    }
 
@@ -223,16 +228,14 @@ public class QueryListServlet extends HttpServlet {
                    pw.println("<tr class=\"w3-hover\" style=\"background-color: #290066; color: white;\">");
                    pw.println("<th>Doctor ID</th>");
                    pw.println("<th>First Name</th>");
-                   pw.println("<th>Last Name</th>");
-                   pw.println("<th>Average Billing Amount</th>");
+                   pw.println("<th>Last Name</th>");;
                    pw.println("</tr>");
 
-                   while (rs2.next()) {
+                   while (rs5.next()) {
                        pw.println("<tr>");
-                       pw.println("<td>" + rs2.getInt(1) + "</td>");
-                       pw.println("<td>" + rs2.getString(2) + "</td>");
-                       pw.println("<td>" + rs2.getString(3) + "</td>");
-                       pw.println("<td>" + rs2.getFloat(4) + "</td>");
+                       pw.println("<td>" + rs5.getInt(1) + "</td>");
+                       pw.println("<td>" + rs5.getString(2) + "</td>");
+                       pw.println("<td>" + rs5.getString(3) + "</td>");;
                        pw.println("</tr>");
                    }
 
@@ -252,15 +255,14 @@ public class QueryListServlet extends HttpServlet {
                    pw.println("<th>Doctor ID</th>");
                    pw.println("<th>First Name</th>");
                    pw.println("<th>Last Name</th>");
-                   pw.println("<th>Average Billing Amount</th>");
+                  
                    pw.println("</tr>");
 
-                   while (rs2.next()) {
+                   while (rs6.next()) {
                        pw.println("<tr>");
-                       pw.println("<td>" + rs2.getInt(1) + "</td>");
-                       pw.println("<td>" + rs2.getString(2) + "</td>");
-                       pw.println("<td>" + rs2.getString(3) + "</td>");
-                       pw.println("<td>" + rs2.getFloat(4) + "</td>");
+                       pw.println("<td>" + rs6.getInt(1) + "</td>");
+                       pw.println("<td>" + rs6.getString(2) + "</td>");
+                       pw.println("<td>" + rs6.getString(3) + "</td>");
                        pw.println("</tr>");
                    }
 
