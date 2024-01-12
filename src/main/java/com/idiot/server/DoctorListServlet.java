@@ -64,8 +64,7 @@ pw.println("<a href='AddDoctor.html' class=\"button\" style=\"vertical-align:mid
             pw.println("<th>Email</th>");
             pw.println("<th>Position</th>");
             pw.println("<th>Specialization</th>");
-            pw.println("<th>Edit</th>");
-            pw.println("<th>Delete</th>");
+            pw.println("<th>Edit  Delete</th>");
             pw.println("</tr>");
 
         	while(rs.next()) {
@@ -80,8 +79,8 @@ pw.println("<a href='AddDoctor.html' class=\"button\" style=\"vertical-align:mid
                 pw.println("<td>" + rs.getString(8) + "</td>");
                 pw.println("<td>" + rs.getString(9) + "</td>");
                 pw.println("<td>" + rs.getString(10) + "</td>");
-                pw.println("<td><a class='tag2' href='DoctorEditScreen?DoctorID="+rs.getInt("DoctorID")+"'>Edit</a></td>");
-                pw.println("<td><a class='tag2' href='doctordeleteurl?DoctorID="+rs.getInt(1)+"'>Delete</a></td>");
+                pw.println("<td><a class='tag2' href='DoctorEditScreen?DoctorID="+rs.getInt("DoctorID")+"'>Edit</a>  <a class='tag2' href='doctordeleteurl?DoctorID=\"+rs.getInt(1)+\"'>Delete</a></td>");
+                
                 pw.println("</tr>");
 
         	}
