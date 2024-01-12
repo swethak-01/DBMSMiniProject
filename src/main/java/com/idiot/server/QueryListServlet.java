@@ -20,7 +20,8 @@ public class QueryListServlet extends HttpServlet {
 	private static final String query = "SELECT d.DoctorID, d.FirstName, d.LastName, SUM(b.TotalAmount) AS TotalAmountEarned\r\n"
 			+ "FROM hospitalmanagement.doctor d\r\n"
 			+ "INNER JOIN hospitalmanagement.billing b ON d.DoctorID = b.DoctorID\r\n"
-			+ "GROUP BY d.DoctorID;";
+			+ "GROUP BY d.DoctorID;\r\n"
+			+ "";
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
