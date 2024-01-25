@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            
         }
 
         body {
@@ -26,7 +25,7 @@
             font-size: 22px;
             font-weight: bold;
             font-family: 'Courier New', monospace;
-            margin-left:40%;
+            margin-left: 40%;
         }
 
         h1 {
@@ -40,77 +39,110 @@
         .tag-container {
             margin-left: 48%;
         }
+
         h3 {
             font-family: 'Courier New', monospace;
             font-weight: bold;
+            font-size:20px;
+            text-align:center;
         }
-        
-h2{
-	font-family: 'Courier New', monospace;
-	font-size: 27px;
-      font-weight: bold;      
-}
+
+        h2 {
+            font-family: 'Courier New', monospace;
+            font-size: 27px;
+            font-weight: bold;
+        }
+
         h5 {
             font-family: 'Courier New', monospace;
             font-size: 18px;
             font-weight: bold;
         }
-        div{
-			font-family: 'Courier New', monospace;
+
+        div {
+            font-family: 'Courier New', monospace;
             font-size: 18px;
             font-weight: bold;
-		}
-		section{
-			color:white;
-		}
+        }
+p{
+	font-size: 17px;
+}
+        section {
+            color: black;
+            
+        }
+
+        /* Added styles for columns */
+        .row {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+        }
+
+        .column {
+            width: 48%;
+        }
+
+        .right-column {
+            width: 48%;
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>GLOBAL HOSPITALS...<span class="tag-container"><a class='tag1' href="AdminList">ADMIN</a><a class='tag1' href="QueryList">QUERIES</a></span></h1>
-     <header>
-		 <br>
-        <center><h2>About Us...</h2></center>
+        <h1>GLOBAL HOSPITALS...<span class="tag-container"><a class='tag1' href="AdminList">ADMIN</a><a
+                    class='tag1' href="QueryList">QUERIES</a></span></h1>
     </header>
+
+    <br>
+    <center>
+        <h2>About Us...</h2>
+    </center>
 
     <section class="row">
         <div class="column">
             <h3>Make an Appointment</h3>
-            <p>Schedule your visit with ease. Our online appointment system ensures a convenient and efficient booking process for your healthcare needs.</p>
+            <p>Schedule your visit with ease. Our online appointment system ensures a convenient and efficient booking
+                process for your healthcare needs.</p>
         </div>
 
         <div class="right-column">
             <h3>Choose Your Package</h2>
-            <p>Explore our comprehensive healthcare packages designed to cater to different needs. Select the one that best suits your requirements for personalized care.</p>
+                <p>Explore our comprehensive healthcare packages designed to cater to different needs. Select the one
+                    that best suits your requirements for personalized care.</p>
         </div>
     </section>
 
     <section class="row">
         <div class="column">
             <h3>Help by Specialist</h2>
-            <p>Receive expert guidance and support from our specialized healthcare professionals. We are committed to providing personalized assistance throughout your wellness journey.</p>
+                <p>Receive expert guidance and support from our specialized healthcare professionals. We are committed to
+                    providing personalized assistance throughout your wellness journey.</p>
         </div>
 
         <div class="right-column">
             <h3>Get Diagnostic Report</h3>
-            <p>Access your diagnostic reports quickly and securely through our advanced online platform. Our streamlined process ensures timely delivery of accurate results.</p>
+            <p>Access your diagnostic reports quickly and securely through our advanced online platform. Our streamlined
+                process ensures timely delivery of accurate results.</p>
         </div>
     </section>
 
     <section class="row">
         <div class="column">
             <h3>Medical Checkup</h3>
-            <p>Prioritize your health with routine medical checkups. Our experienced medical team conducts thorough examinations to detect and address potential health issues.</p>
+            <p>Prioritize your health with routine medical checkups. Our experienced medical team conducts thorough
+                examinations to detect and address potential health issues.</p>
         </div>
 
         <div class="right-column">
             <h3>Nursing Services</h2>
-            <p>Experience compassionate nursing care tailored to your needs. Our skilled nursing team is dedicated to providing quality healthcare services in the comfort of your home.</p>
+                <p>Experience compassionate nursing care tailored to your needs. Our skilled nursing team is dedicated to
+                    providing quality healthcare services in the comfort of your home.</p>
         </div>
     </section>
-	
 
 </body>
+
 </html>

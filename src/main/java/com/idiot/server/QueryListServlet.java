@@ -383,6 +383,9 @@ public class QueryListServlet extends HttpServlet {
 
                    pw.println("</table>");
                }
+            pw.println("<br>");
+            pw.println("<hr>");
+            pw.println("<br>");
 
             pw.println("</body>");
             pw.println("</html>");
