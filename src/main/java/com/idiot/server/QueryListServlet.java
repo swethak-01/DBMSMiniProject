@@ -40,18 +40,18 @@ public class QueryListServlet extends HttpServlet {
             + "AND DATEDIFF(a2.Date, a1.Date) = 1 "
             + "INNER JOIN hospitalmanagement.patient p ON a1.PatientID = p.PatientID";
 
-    private static final String query5 = "SELECT d.DoctorID, d.FirstName, d.LastName\r\n"
+    private static final String query5 = "SELECT DISTINCT d.DoctorID, d.FirstName, d.LastName\r\n"
     		+ "FROM hospitalmanagement.doctor d\r\n"
-    		+ "INNER JOIN hospitalmanagement.appointment a ON d.DoctorID = a.DoctorID\r\n"
-    		+ "INNER JOIN hospitalmanagement.patient p ON a.PatientID = p.PatientID\r\n"
+    		+ "JOIN hospitalmanagement.appointment a ON d.DoctorID = a.DoctorID\r\n"
+    		+ "JOIN hospitalmanagement.patient p ON a.PatientID = p.PatientID\r\n"
+    		+ "WHERE p.Gender IN ('Male', 'Female')\r\n"
     		+ "GROUP BY d.DoctorID\r\n"
-    		+ "HAVING COUNT(DISTINCT CASE WHEN p.Gender = 'M' THEN p.PatientID END) > 0\r\n"
-    		+ "   AND COUNT(DISTINCT CASE WHEN p.Gender = 'F' THEN p.PatientID END) > 0;\r\n"
+    		+ "HAVING COUNT(DISTINCT p.Gender) = 2;"
     		+ "";
     private static final String query6 = "SELECT d.DoctorID, d.FirstName, d.LastName, COUNT(p.PrescriptionID) AS PrescriptionCount\r\n"
     		+ "FROM hospitalmanagement.doctor d\r\n"
     		+ "INNER JOIN hospitalmanagement.prescription p ON d.DoctorID = p.DoctorID\r\n"
-    		+ "WHERE p.Diagnosis = 'Hypertension'\r\n"
+    		+ "WHERE p.Diagnosis = 'High Cholesterol'\r\n"
     		+ "GROUP BY d.DoctorID;\r\n"
     		+ "";
     private static final String query7 = "SELECT p.PatientID, p.FirstName, p.LastName, AVG(b.TotalAmount) AS AverageTotalAmount\r\n"
@@ -200,7 +200,7 @@ public class QueryListServlet extends HttpServlet {
                    pw.println("<th>Last Name</th>");
                    pw.println("<th>Appointment Date 1</th>");
                    pw.println("<th>Appointment Date 2</th>");
-                   pw.println("<th>Average Billing Amount</th>");
+      
                    pw.println("</tr>");
 
                    while (rs4.next()) {
